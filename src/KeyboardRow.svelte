@@ -1,12 +1,20 @@
 <script>
-    //export let keyCount = 8
+    import KeyboardKey from "./KeyboardKey.svelte"
+    export let keyColumnCount = 8
 </script>
 
-<div class="KeyboardRow">
-    <h1>aaarstars</h1>
+
+
+<div class="keyboard-row">
+    {#each new Array(keyColumnCount) as _}
+        <KeyboardKey {keyColumnCount}/>
+    {/each}
 </div>
 
 
 <style>
-
+    .keyboard-row{
+        display: flex;
+        flex-wrap: wrap;
+    }
 </style>
