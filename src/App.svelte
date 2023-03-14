@@ -6,9 +6,7 @@
     let layoutLanguage = 'english'  // Initial keyboard layout language
 
     function changeKeyboardLayout(event){ //TODO forward keyboardLayout to keyboardHeatmap somehow
-        console.log(event)
         keyboardLayout = event.detail
-        console.log(`keyboardLayout: ${keyboardLayout}`)
     }
 </script>
 
