@@ -1,9 +1,9 @@
 <script>
-    import KeyboardRows from "./components/KeyboardRows.svelte";
+    import KeyboardRows from "./components/KeyboardHeatmap.svelte"
 </script>
 
 <main>
-	<h1>App</h1>
+	<h1 class="text-center">KeyboardFrequency</h1>
     <KeyboardRows layoutName={'qwerty'}/>
 </main>
 

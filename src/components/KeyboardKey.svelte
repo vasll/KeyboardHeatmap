@@ -7,7 +7,7 @@
 
 
 <div class="keyboard-key text-center" style="flex: 1 0 calc({flexPercentage}% - 10px)">
-    {keyValue}
+    <p class="p-0 m-0">{keyValue}</p>
 </div>
 
 
