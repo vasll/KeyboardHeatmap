@@ -2,7 +2,7 @@
     export let rowKeysCount = 1
     export let keyValue = '?'
 
-    const flexPercentage = 100/rowKeysCount
+    $: flexPercentage = 100/rowKeysCount
 </script>
 
 

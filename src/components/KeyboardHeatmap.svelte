@@ -52,6 +52,7 @@
 
     /** Check if .heatmap-canvas exists, if it does remove it, then create the heatmap with data from getHeatmapData() */
     function drawHeatmap(){
+        console.log(`[KeyboardHeatmap] drawHeatmap()`)
         if(document.querySelector('.heatmap-canvas') != null){
             document.querySelector('.heatmap-canvas').remove()
         }
