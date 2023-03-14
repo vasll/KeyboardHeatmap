@@ -1,8 +1,8 @@
 <script>
-    export let keyColumnCount
+    export let rowKeysCount = 1
     export let keyValue = '?'
 
-    const flexPercentage = 100/keyColumnCount
+    const flexPercentage = 100/rowKeysCount
 </script>
 
 
@@ -15,5 +15,6 @@
     .keyboard-key{
         border: 1px solid gray;
         margin: 1px;
+        font-size: 24px;
     }
 </style>

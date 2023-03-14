@@ -1,10 +1,10 @@
 <script>
-    import KeyboardRow from "./KeyboardRow.svelte";    
+    import KeyboardRows from "./components/KeyboardRows.svelte";
 </script>
 
 <main>
 	<h1>App</h1>
-    <KeyboardRow />
+    <KeyboardRows layoutName={'qwerty'}/>
 </main>
 
 <style>
