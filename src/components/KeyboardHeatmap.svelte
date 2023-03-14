@@ -9,7 +9,7 @@
 
     let keyboard = null     // HTML keyboard div
     let keyboardRows = []   // HTML keyboardRow divs
-    let currentLayout = $LayoutStore.find(layout => layout.name == layoutName);    // Load the current layout
+    let currentLayout = $LayoutStore[layoutName];    // Load the current layout
 
     /** Creates data to be used in a heatmap */
     function getHeatmapData(){
