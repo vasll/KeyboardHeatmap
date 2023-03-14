@@ -47,11 +47,17 @@ export default {
 		}),
 
 		copy({
-            targets: [{ 
-                src: 'node_modules/bootstrap/dist/**/*', 
-                dest: 'public/vendor/bootstrap' 
-            }]
-        }),
+			targets: [
+			  {
+				src: "node_modules/bootstrap/dist/css/bootstrap.min.css",
+				dest: "public/vendor/bootstrap/css",
+			  },
+			  {
+				src: "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+				dest: "public/vendor/bootstrap/js",
+			  },
+			],
+		  }),
 
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
