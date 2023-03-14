@@ -4,12 +4,12 @@
     import heatmap from "heatmap.js"
     import KeyboardKey from "./KeyboardKey.svelte"
 
-    export let layoutName = 'qwerty'    // Default kb layout
-    export let layoutLanguage = 'english'   // Default language
+    export let keyboardLayout    // Default kb layout
+    export let layoutLanguage   // Default language
 
     let keyboard = null     // HTML keyboard div
     let keyboardRows = []   // HTML keyboardRow divs
-    let currentLayout = $LayoutStore[layoutName];    // Load the current layout
+    let currentLayout = $LayoutStore[keyboardLayout];    // Load the current layout
 
     /** Creates data to be used in a heatmap */
     function getHeatmapData(){

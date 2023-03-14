@@ -1,12 +1,20 @@
 <script>
     import {LayoutStore} from '../stores'
+    import { createEventDispatcher } from 'svelte'
+
+    export let keyboardLayout
+    
+    const dispatch = createEventDispatcher()
+
+    function onLayoutChange(){
+        dispatch('keyboardLayout', keyboardLayout)
+    }
 </script>
 
 
-<select class="form-select">
-    <option selected>Layout</option>
-    {#each [1,2] as layoutName}
-        <option value="3">Three</option>
+<select bind:value={keyboardLayout} class="form-select" on:change={onLayoutChange}>
+    {#each Object.keys($LayoutStore) as key}
+        <option value="{key}">{key}</option>
     {/each}
 </select>
 
