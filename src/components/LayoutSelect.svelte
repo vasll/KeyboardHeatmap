@@ -1,5 +1,5 @@
 <script>
-    import {LayoutStore} from '../stores'
+    import { LayoutStore } from '../stores'
     import { createEventDispatcher } from 'svelte'
 
     export let keyboardLayout
@@ -17,7 +17,3 @@
         <option value="{key}">{key}</option>
     {/each}
 </select>
-
-<style>
-
-</style>

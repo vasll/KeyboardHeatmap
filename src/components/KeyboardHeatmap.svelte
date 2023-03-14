@@ -5,7 +5,7 @@
     import KeyboardKey from "./KeyboardKey.svelte"
 
     export let keyboardLayout    // Default kb layout
-    export let layoutLanguage   // Default keyboard language
+    export let keyboardLanguage   // Default keyboard language
 
     let keyboard = null     // Bound to .keyboard
     let keyboardRows = []   // Bound to .keyboardRow (all of them)
@@ -13,14 +13,15 @@
     $: currentLayout = $LayoutStore[keyboardLayout];    // Load the current layout
 
     /** On keyboardLayout value change listener (reactive Svelte variable) */
-    $: if(keyboardLayout){
-        console.log(`[KeyboardHeatmap] keyboardLayout: ${keyboardLayout}`)
+    $: if(keyboardLayout || keyboardLanguage){
+        console.log(`[KeyboardHeatmap] layout/language change: ${keyboardLayout} ${keyboardLanguage}`)
+        // TODO redraw the heatmap
     }
 
     /** Creates data to be used in a keyboard heatmap */
     function getHeatmapData(){
         let heatmapData = []
-        let languageFrequency = $LanguageFrequencyStore[layoutLanguage] // Get languageFrequency data of current language
+        let languageFrequency = $LanguageFrequencyStore[keyboardLanguage] // Get languageFrequency data of current language
         let max = 0
         const radiusFactor = window.innerWidth*0.022 // To try keeping heatmap radius similar between screen sizes, radiusFactor is added to radius
         
