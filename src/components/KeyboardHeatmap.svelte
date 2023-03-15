@@ -5,8 +5,9 @@
     import heatmap from "heatmap.js"
     import KeyboardKey from "./KeyboardKey.svelte"
 
-    export let keyboardLayout    // Default kb layout
+    export let keyboardLayout     // Default kb layout
     export let keyboardLanguage   // Default keyboard language
+    export let heatmapRadius      // Default heatmap radius
 
     let keyboard = null     // Bound to .keyboard
     let keyboardRows = []   // Bound to .keyboardRow (all of them)
@@ -37,7 +38,7 @@
                             x: Math.round(centerX),
                             y: centerY,
                             value: letterFrequency,
-                            radius: 80+radiusFactor,
+                            radius: heatmapRadius+radiusFactor,
                         })
                     }
                 }
@@ -55,8 +56,8 @@
         heatmap.create({container: document.querySelector('#keyboard')}).setData(getHeatmapData())
     }
 
-    /** Redraw heatmap on keyboardLanguage or keyboardLayout change */
-    $: if(keyboardLanguage || keyboardLayout){
+    /** On change of keyboardLanguage, keyboardLayout, heatmapRadius] -> redraw the heatmap */
+    $: if(keyboardLanguage || keyboardLayout || heatmapRadius){
         if(hasMounted == true){
             /*  When changing keyboardLayout, this listener is toggled before the DOM updates,
              *  so the drawHeatmap() function draws heatmap data from the previous layout because to draw

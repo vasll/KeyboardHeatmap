@@ -1,8 +1,10 @@
 <script>
-    import KeyboardRows from "./components/KeyboardHeatmap.svelte"
+    import KeyboardHeatmap from "./components/KeyboardHeatmap.svelte"
     import LanguageSelect from "./components/LanguageSelect.svelte";
     import LayoutSelect from "./components/LayoutSelect.svelte";
+    import RadiusSlider from "./components/RadiusSlider.svelte";
 
+    let heatmapRadius = 80
     let keyboardLayout = 'qwerty'   // Initial keyboard layout
     let keyboardLanguage = 'english'  // Initial keyboard layout language
 </script>
@@ -13,9 +15,11 @@
         <div class="fs-2">{keyboardLayout}</div>
     </div>
     
-    <KeyboardRows {keyboardLanguage} {keyboardLayout}/>
+    <KeyboardHeatmap {keyboardLanguage} {keyboardLayout} {heatmapRadius}/>
+    <RadiusSlider bind:heatmapRadius/>
     <LayoutSelect bind:keyboardLayout/>
     <LanguageSelect bind:keyboardLanguage/>
+
 </main>
 
 <style>
