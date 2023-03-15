@@ -1,5 +1,6 @@
 <script>
-    import { LayoutStore, LanguageFrequencyStore } from '../stores'
+    import { LayoutStore } from '../stores/LayoutStore'
+    import { LanguageFrequencyStore } from '../stores/LanguageFrequencyStore'
 	import { onMount } from "svelte"
     import heatmap from "heatmap.js"
     import KeyboardKey from "./KeyboardKey.svelte"

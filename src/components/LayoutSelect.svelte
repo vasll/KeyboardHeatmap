@@ -1,5 +1,5 @@
 <script>
-    import { LayoutStore } from '../stores'
+    import { LayoutStore } from '../stores/LayoutStore'
     export let keyboardLayout
 </script>
 

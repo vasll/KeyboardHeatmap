@@ -1,5 +1,5 @@
 <script>
-    import { LanguageFrequencyStore } from '../stores'
+    import { LanguageFrequencyStore } from '../stores/LanguageFrequencyStore'
     export let keyboardLanguage
 </script>
 
