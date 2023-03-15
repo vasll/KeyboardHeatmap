@@ -56,28 +56,18 @@
         heatmap.create({container: document.querySelector('#keyboard')}).setData(getHeatmapData())
     }
 
-    /** keyboardLanguage listener: Redraw heatmap on keyboardLanguage change */
-    $: if(keyboardLanguage){
+    /** Redraw heatmap on keyboardLanguage or keyboardLayout change */
+    $: if(keyboardLanguage || keyboardLayout){
         if(hasMounted == true){
-            console.log(`$:keyboardLanguage -> ${keyboardLanguage}`)
-            drawHeatmap()
-        }
-    }
-
-    /** keyboardLayout listener: Redraw heatmap on keyboardLayout change*/
-    $: if(keyboardLayout){
-        if(hasMounted == true){
-            /*  This is a temporary solution
-             *  When changing keyboardLayout, this listener is toggled before the DOM updates,
+            /*  When changing keyboardLayout, this listener is toggled before the DOM updates,
              *  so the drawHeatmap() function draws heatmap data from the previous layout because to draw
              *  the layout, the function takes data from DOM elements which are yet to be updated.
-             *  To draw the heatmap after the DOM is already changed, there is a 1ms timeout. 
-             *  Is it horrible? Yes
-             *  Does it work? Kinda */
+             *  To draw the heatmap after the DOM is already changed, there is a 0ms timeout. 
+             *  Is it horrible? Yes. Does it work? Yes */
             setTimeout(()=> {
-                console.log(`$:keyboardLayout -> ${keyboardLayout}`)
+                console.log(`$:keyboardLayout = ${keyboardLayout}\n$:keyboardLanguage = ${keyboardLanguage}`)
                 drawHeatmap()
-            }, 1)
+            }, 0)
         }
     }
 
