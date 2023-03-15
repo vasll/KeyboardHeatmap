@@ -1,0 +1,5 @@
+/* Select without borders*/
+.form-select{
+    width:auto;
+    border:none !important;
+}

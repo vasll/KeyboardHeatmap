@@ -10,15 +10,13 @@
 </script>
 
 <main class="mx-1">
-    <div class="d-flex align-items-center justify-content-between">
-        <div class="fs-2">{keyboardLanguage}</div>
-        <div class="fs-2">{keyboardLayout}</div>
-    </div>
-    
+    <div class="fs-1 text-center">KeyboardHeatmap</div>    
     <KeyboardHeatmap {keyboardLanguage} {keyboardLayout} {heatmapRadius}/>
     <RadiusSlider bind:heatmapRadius/>
-    <LayoutSelect bind:keyboardLayout/>
-    <LanguageSelect bind:keyboardLanguage/>
+    <div class="d-flex align-items-center justify-content-between mb-1">
+        <LayoutSelect bind:keyboardLayout/>
+        <LanguageSelect bind:keyboardLanguage/>
+    </div>
 
 </main>
 

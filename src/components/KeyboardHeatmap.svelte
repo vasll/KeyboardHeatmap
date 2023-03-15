@@ -53,7 +53,10 @@
         if(document.querySelector('.heatmap-canvas') != null){
             document.querySelector('.heatmap-canvas').remove()
         }
-        heatmap.create({container: document.querySelector('#keyboard')}).setData(getHeatmapData())
+        heatmap.create({
+            container: document.querySelector('#keyboard'), 
+            maxOpacity: .75,
+        }).setData(getHeatmapData())
     }
 
     /** On change of keyboardLanguage, keyboardLayout, heatmapRadius] -> redraw the heatmap */

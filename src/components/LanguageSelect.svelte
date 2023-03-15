@@ -4,7 +4,7 @@
 </script>
 
 
-<select bind:value={keyboardLanguage} class="form-select">
+<select bind:value={keyboardLanguage} class="form-select fs-5 shadow-none">
     {#each Object.keys(Object.fromEntries(Object.entries($LanguageFrequencyStore).sort())) as key} <!-- Pretty sure this code is extremely bad -->
         <option value="{key}">{key}</option>
     {/each}
