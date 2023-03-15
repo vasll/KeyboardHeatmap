@@ -1,5 +1,5 @@
 <script>
-    import { LayoutStore } from '../stores/KeyboardLayoutStore'
+    import { KeyboardLayoutStore } from '../stores/KeyboardLayoutStore'
     import { LanguageFrequencyStore } from '../stores/LanguageFrequencyStore'
 	import { onMount } from "svelte"
     import heatmap from "heatmap.js"
@@ -11,7 +11,7 @@
     let keyboard = null     // Bound to .keyboard
     let keyboardRows = []   // Bound to .keyboardRow (all of them)
     let hasMounted = false  // true after onMount() finishes
-    $: currentLayout = $LayoutStore[keyboardLayout];    // Load the current layout
+    $: currentLayout = $KeyboardLayoutStore[keyboardLayout];    // Load the current layout
 
     /** Creates data to be used in a keyboard heatmap */
     function getHeatmapData(){
