@@ -5,7 +5,7 @@
 
 
 <select bind:value={keyboardLayout} class="form-select">
-    {#each Object.keys($KeyboardLayoutStore) as key}
+    {#each Object.keys(Object.fromEntries(Object.entries($KeyboardLayoutStore).sort())) as key} <!-- Pretty sure this code is extremely bad -->
         <option value="{key}">{key}</option>
     {/each}
 </select>
