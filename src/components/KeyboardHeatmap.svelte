@@ -27,9 +27,8 @@
                     const keyboardRect = keyboard.getBoundingClientRect();  // Get the dimensions of the parent div
 
                     // Calculate the center absolute coordinates of the child div
-                    // TODO coordinates are absolute to the page and not to the container, fix this.
                     const centerX = (childRect.right - keyboardRect.left) - (childNode.offsetWidth/2);
-                    const centerY = (childRect.bottom - keyboardRect.top) - (keyboardRect.top/keyboardRows.length);
+                    const centerY = (childRect.bottom - keyboardRect.top) - (childNode.clientHeight/2);
                     
                     const letterFrequency = languageFrequency[childNode.innerText]  // Get the frequency value for that letter
                     if(letterFrequency>max) max = letterFrequency

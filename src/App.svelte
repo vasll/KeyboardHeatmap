@@ -7,8 +7,12 @@
     let keyboardLanguage = 'english'  // Initial keyboard layout language
 </script>
 
-<main>
-	<h1 class="text-center">KeyboardFrequency</h1>
+<main class="mx-1">
+    <div class="d-flex align-items-center justify-content-between">
+        <div class="fs-2">{keyboardLanguage}</div>
+        <div class="fs-2">{keyboardLayout}</div>
+    </div>
+    
     <KeyboardRows {keyboardLanguage} {keyboardLayout}/>
     <LayoutSelect bind:keyboardLayout/>
     <LanguageSelect bind:keyboardLanguage/>
