@@ -9,14 +9,8 @@
 
     let keyboard = null     // Bound to .keyboard
     let keyboardRows = []   // Bound to .keyboardRow (all of them)
-
+    let hasMounted = false  // true after onMount() finishes
     $: currentLayout = $LayoutStore[keyboardLayout];    // Load the current layout
-
-    /** On keyboardLayout value change listener (reactive Svelte variable) */
-    $: if(keyboardLayout || keyboardLanguage){
-        console.log(`[KeyboardHeatmap] layout/language change: ${keyboardLayout} ${keyboardLanguage}`)
-        // TODO redraw the heatmap
-    }
 
     /** Creates data to be used in a keyboard heatmap */
     function getHeatmapData(){
@@ -39,12 +33,14 @@
                     const letterFrequency = languageFrequency[childNode.innerText]  // Get the frequency value for that letter
                     if(letterFrequency>max) max = letterFrequency
                     
-                    heatmapData.push({
-                        x: Math.round(centerX),
-                        y: centerY,
-                        value: letterFrequency,
-                        radius: 80+radiusFactor,
-                    })
+                    if(letterFrequency != null){    // Exclude cases where letterFrequency is undefined
+                        heatmapData.push({
+                            x: Math.round(centerX),
+                            y: centerY,
+                            value: letterFrequency,
+                            radius: 80+radiusFactor,
+                        })
+                    }
                 }
             })
         })
@@ -53,16 +49,24 @@
 
     /** Check if .heatmap-canvas exists, if it does remove it, then create the heatmap with data from getHeatmapData() */
     function drawHeatmap(){
-        console.log(`[KeyboardHeatmap] drawHeatmap()`)
+        console.log(`drawHeatmap()`)
         if(document.querySelector('.heatmap-canvas') != null){
             document.querySelector('.heatmap-canvas').remove()
         }
         heatmap.create({container: document.querySelector('#keyboard')}).setData(getHeatmapData())
     }
 
+    /** Redraw heatmap on keyboardLanguage change */
+    $: if(keyboardLanguage){
+        console.log(`$:keyboardLanguage -> ${keyboardLanguage}`)
+        if(hasMounted == true){
+            drawHeatmap()
+        }
+    }
+
     onMount(()=>{
-        drawHeatmap()   // Draw heatmap for the first time
         window.addEventListener('resize', ()=>drawHeatmap(), true);  // Redraw heatmap on window resize
+        hasMounted = true   // This will toggle the first heatmap draw
     })
 </script>
 
