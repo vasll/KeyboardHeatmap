@@ -2,6 +2,7 @@
     import { KeyboardLayoutStore } from '../stores/KeyboardLayoutStore'
     import { LanguageFrequencyStore } from '../stores/LanguageFrequencyStore'
 	import { onMount } from "svelte"
+    import { fly } from 'svelte/transition';
     import heatmap from "heatmap.js"
     import KeyboardKey from "./KeyboardKey.svelte"
 
@@ -92,5 +93,12 @@
 
 
 <style>
+    .fade-in{
+        animation: 1s ease-in 0s 1 fadeIn;
+    }
 
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
 </style>
