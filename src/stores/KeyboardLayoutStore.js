@@ -1,6 +1,6 @@
 import { writable } from "svelte/store"
 
-export const LayoutStore = writable({
+export const KeyboardLayoutStore = writable({
     'qwerty': {  
         keyboardRows: [
             ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],

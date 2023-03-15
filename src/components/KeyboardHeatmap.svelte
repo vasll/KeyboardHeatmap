@@ -1,5 +1,5 @@
 <script>
-    import { LayoutStore } from '../stores/LayoutStore'
+    import { LayoutStore } from '../stores/KeyboardLayoutStore'
     import { LanguageFrequencyStore } from '../stores/LanguageFrequencyStore'
 	import { onMount } from "svelte"
     import heatmap from "heatmap.js"
